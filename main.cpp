@@ -7,10 +7,10 @@
 
 int main(void) {
     Referee One;
-    Human human;
-    Computer computer;
+    Human human1;
+    Human human2;
 
-    Player* Winner = One.refGame(&human, &computer);
+    Player* Winner = One.refGame(&human1, &human2);
     if (Winner == nullptr) {
         std::cout << "Tie" << std::endl;
     } else {
