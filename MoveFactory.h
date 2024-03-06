@@ -7,6 +7,6 @@
 
 class MoveFactory{
     public:
-    static Move* MoveSel(std::string movename);
+        static Move* MoveSel(std::string movename);
 };
 #endif

@@ -6,10 +6,11 @@
 
 
 class Move{
+    protected:
+        std::unordered_set<std::string> wins;
+        std::string name;
     public:
-    std::unordered_set<std::string> wins;
-    std::string name;
-
-    virtual std::string getName() = 0;
+        virtual std::string getName() = 0;
+        virtual std::unordered_set<std::string> getWins() = 0;
 };
 #endif

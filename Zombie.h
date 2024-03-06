@@ -6,9 +6,10 @@
 #include <unordered_set>
 
 
-class Zombie: public Move {
+class Zombie : public Move {
     public:
-    Zombie();
-    std::string getName();
+        Zombie();
+        std::string getName();
+        std::unordered_set<std::string> getWins();
 };
 #endif

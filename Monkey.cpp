@@ -10,3 +10,7 @@ Monkey::Monkey() {
 std::string Monkey::getName() {
     return name;
 }
+
+std::unordered_set<std::string> Monkey::getWins() {
+    return wins;
+}

@@ -15,7 +15,7 @@ Player* Referee::refGame(Player* player1, Player* player2) {
 
     if (move1 == move2) {
         return nullptr;
-    } else if (player1M->wins.find(move2) != player1M->wins.end()) {
+    } else if (player1M->getWins().find(move2) != player1M->getWins().end()) {
         return player1;
     }
 

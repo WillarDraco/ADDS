@@ -10,3 +10,7 @@ Zombie::Zombie() {
 std::string Zombie::getName() {
     return name;
 }
+
+std::unordered_set<std::string> Zombie::getWins() {
+    return wins;
+}

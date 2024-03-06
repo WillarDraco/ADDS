@@ -7,8 +7,8 @@
 
 class Referee {
     public:
-    Referee( ); // constructor
-    Player* refGame(Player* player1, Player* player2);
+        Referee( ); // constructor
+        Player* refGame(Player* player1, Player* player2);
 };
 #endif
 

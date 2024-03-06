@@ -10,3 +10,7 @@ Pirate::Pirate() {
 std::string Pirate::getName() {
     return name;
 }
+
+std::unordered_set<std::string> Pirate::getWins() {
+    return wins;
+}

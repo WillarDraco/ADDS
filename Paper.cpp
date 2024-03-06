@@ -10,3 +10,7 @@ Paper::Paper() {
 std::string Paper::getName() {
     return name;
 }
+
+std::unordered_set<std::string> Paper::getWins() {
+    return wins;
+}

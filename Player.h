@@ -6,9 +6,10 @@
 
 
 class Player {
+    protected:
+        std::string name;
     public:
-    std::string name;
-    virtual Move* makeMove() = 0;
-    virtual std::string getName() = 0;
+        virtual Move* makeMove() = 0;
+        virtual std::string getName() = 0;
 };
 #endif

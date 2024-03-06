@@ -6,9 +6,10 @@
 #include <unordered_set>
 
 
-class Scissors: public Move {
+class Scissors : public Move {
     public:
-    Scissors();
-    std::string getName();
+        Scissors();
+        std::string getName();
+        std::unordered_set<std::string> getWins();
 };
 #endif

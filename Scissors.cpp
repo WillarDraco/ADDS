@@ -10,3 +10,7 @@ Scissors::Scissors() {
 std::string Scissors::getName() {
     return name;
 }
+
+std::unordered_set<std::string> Scissors::getWins() {
+    return wins;
+}

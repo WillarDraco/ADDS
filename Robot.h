@@ -8,7 +8,8 @@
 
 class Robot: public Move {
     public:
-    Robot();
-    std::string getName();
+        Robot();
+        std::string getName();
+        std::unordered_set<std::string> getWins();
 };
 #endif

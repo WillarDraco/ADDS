@@ -6,10 +6,10 @@
 #include "Move.h"
 
 
-class Computer: public Player {
+class Computer : public Player {
     public:
-    Computer();
-    Move* makeMove();
-    std::string getName();
+        Computer();
+        Move* makeMove();
+        std::string getName();
 };
 #endif

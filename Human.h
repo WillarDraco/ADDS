@@ -5,11 +5,11 @@
 #include "Player.h"
 #include "Move.h"
 
-class Human: public Player {
+class Human : public Player {
     public:
-    Human();
-    Human(std::string name);
-    Move* makeMove();
-    std::string getName();
+        Human();
+        Human(std::string name);
+        Move* makeMove();
+        std::string getName();
 };
 #endif

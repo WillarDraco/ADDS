@@ -6,9 +6,10 @@
 #include <unordered_set>
 
 
-class Rock: public Move {
+class Rock : public Move {
     public:
-    Rock();
-    std::string getName();
+        Rock();
+        std::string getName();
+        std::unordered_set<std::string> getWins();
 };
 #endif

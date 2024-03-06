@@ -10,3 +10,7 @@ Ninja::Ninja() {
 std::string Ninja::getName() {
     return name;
 }
+
+std::unordered_set<std::string> Ninja::getWins() {
+    return wins;
+}
