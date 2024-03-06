@@ -7,7 +7,6 @@
 
 class MoveFactory{
     public:
-    MoveFactory();
-    Move* MoveSel(std::string movename);
+    static Move* MoveSel(std::string movename);
 };
 #endif
