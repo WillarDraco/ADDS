@@ -9,7 +9,8 @@ Computer::Computer() {
 }
 
 Move* Computer::makeMove() {
-    return new Rock;
+    Move* move = new Rock;
+    return move;
 }
 
 std::string Computer::getName() {
