@@ -3,11 +3,11 @@
 
 #include <string>
 #include "Move.h"
-#include <unordered_set>
 
 
 class MoveFactory{
     public:
-    
+    MoveFactory();
+    Move* MoveSel(std::string movename);
 };
 #endif
