@@ -4,7 +4,7 @@
 
 Scissors::Scissors() {
     name = "Scissors";
-    wins = {"Rock"};
+    wins = {"Paper"};
 }
 
 std::string Scissors::getName() {
