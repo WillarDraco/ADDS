@@ -3,12 +3,13 @@
 
 #include <string>
 #include "Player.h"
+#include "Move.h"
 
 class Human: public Player {
     public:
     Human();
     Human(std::string name);
-    char makeMove();
+    Move* makeMove();
     std::string getName();
 };
 #endif

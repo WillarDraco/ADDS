@@ -7,7 +7,7 @@ Referee::Referee() {
 }
 
 Player* Referee::refGame(Player* player1, Player* player2) {
-    char player1M = player1->makeMove();
+    std::string player1M = player1->makeMove();
     char player2M = player2->makeMove();
 
     if (player1M == player2M) {
