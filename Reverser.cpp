@@ -24,6 +24,11 @@ int Reverser::reverseDigit(int value) {
 
 std::string Reverser::reverseString(std::string characters) {
     int length = characters.length();
+    
+    if (length == 0) {
+        return "ERROR";
+    }
+
     if (length == 1) {
         return characters;
     } else {
