@@ -1,7 +1,7 @@
 #include "RecursiveBinarySearch.h"
 
 bool RecursiveBinarySearch::search(std::vector<int> array, int target) {
-    int middle = (array.end() - array.begin())/2;
+    int middle = array.size() / 2;
     
     if (array.size() == 1 && array[0] != target) {
         return false;
