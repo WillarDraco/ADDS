@@ -2,9 +2,13 @@
 
 bool RecursiveBinarySearch::search(std::vector<int> array, int target) {
     int middle = array.size() / 2;
-    std::cout << (1/2) << std::endl;
+    std::cout << middle << std::endl;
     
     if (array.size() == 1 && array[0] != target) {
+        return false;
+    }
+
+    if (array.size() == 0) {
         return false;
     }
 
