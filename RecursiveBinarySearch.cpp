@@ -8,6 +8,8 @@ bool RecursiveBinarySearch::search(std::vector<int> array, int target) {
         return false;
     }
 
+    std::cout << "Middle " << array[middle] << std::endl;
+
     if (array[middle] == target) {
         return true;
     } else if (array[middle] < target) {
