@@ -16,9 +16,9 @@ bool RecursiveBinarySearch::search(std::vector<int> array, int target) {
 
     if (array[middle] == target) {
         return true;
-    } else if (array[middle] < target) {
-        return search(std::vector<int>{array.begin(), array.begin() + middle}, target);
     } else if (array[middle] > target) {
+        return search(std::vector<int>{array.begin(), array.begin() + middle}, target);
+    } else if (array[middle] < target) {
         return search(std::vector<int>{array.begin() + middle + 1, array.end()},target);
     }
 }
