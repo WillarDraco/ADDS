@@ -5,7 +5,7 @@ bool RecursiveBinarySearch::search(std::vector<int> array, int target) {
     if (array.size() % 2 == 0) {
         middle = array.size() / 2;
     } else {
-        middle = (array.size() + 1) / 2;
+        middle = (array.size() / 2) + 1;
     }
 
     std::cout << middle << std::endl;
