@@ -23,6 +23,7 @@ int main(void) {
 
     RecursiveBinarySearch binarySearch;
     bool found = binarySearch.search(sorted, 1);
+    
     if (found == true) {
         std::cout << "true" << " ";
     } else {
@@ -32,5 +33,6 @@ int main(void) {
     for (int i = 0; i < sorted.size(); i++) {
         std::cout << sorted[i] << " ";
     }
+    
     std::cout << std::endl;
 }
