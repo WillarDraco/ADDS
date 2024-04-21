@@ -2,7 +2,6 @@
 
 bool RecursiveBinarySearch::search(std::vector<int> array, int target) {
     int middle = array.size() / 2;
-    std::cout << middle << std::endl;
     
     if (array.size() == 1 && array[0] != target) {
         return false;
@@ -11,8 +10,6 @@ bool RecursiveBinarySearch::search(std::vector<int> array, int target) {
     if (array.size() == 0) {
         return false;
     }
-
-    std::cout << "Middle " << array[middle] << std::endl;
 
     if (array[middle] == target) {
         return true;
