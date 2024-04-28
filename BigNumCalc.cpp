@@ -5,18 +5,15 @@ BigNumCalc::BigNumCalc() {
 }
 
 BigNumCalc::~BigNumCalc() {
-    
+
 }
 
 std::list<int> BigNumCalc::buildBigNum(std::string numString) {
     std::list<int> num;
     int length = numString.length();
 
-    auto it = num.begin();
-
     for (int i = length - 1; i > 0; i--) {
-        num.insert(it, numString[i]);
-        it++;
+        num.push_back(numString[i]);
     }
 
     return num;
@@ -26,19 +23,18 @@ std::list<int> BigNumCalc::add(std::list<int> num1, std::list<int> num2) {
     auto it1 = num1.begin();
     auto it2 = num2.begin();
     std::list<int> added;
-    auto adit = added.begin();
 
     int carry = 0;
 
     while (it1 != num1.end() || it2 != num2.end()) {
         int addition = *it1 + *it2 + carry;
-        added.insert(adit, addition);
+        added.push_back(addition);
         carry = addition % 10;
 
     }
 
     while (carry > 0) {
-        added.insert(adit, carry % 10);
+        added.push_back(carry % 10);
         carry = carry / 10;
     }
 
@@ -49,7 +45,6 @@ std::list<int> BigNumCalc::sub(std::list<int> num1, std::list<int> num2) {
     auto it1 = num1.begin();
     auto it2 = num2.begin();
     std::list<int> subbed;
-    auto subit = subbed.begin();
 
     int carry = 0;
 
@@ -63,11 +58,11 @@ std::list<int> BigNumCalc::sub(std::list<int> num1, std::list<int> num2) {
             carry = 0;
         }
 
-        subbed.insert(subit, subtraction);
+        subbed.push_back(subtraction);
     }
 
-    if (*subit == 0) {
-        subbed.erase(subit);
+    if (*subbed.end() == 0) {
+        subbed.erase(subbed.end());
     }
 
     return subbed;
