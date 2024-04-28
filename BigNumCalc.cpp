@@ -13,7 +13,7 @@ std::list<int> BigNumCalc::buildBigNum(std::string numString) {
     int length = numString.length();
 
     for (int i = 0; i < length; i++) {
-        num.push_back(numString[i]);
+        num.push_back(numString[i] - '0');
     }
 
     return num;
