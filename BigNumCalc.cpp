@@ -43,7 +43,7 @@ std::list<int> BigNumCalc::add(std::list<int> num1, std::list<int> num2) {
         carry = addition / 10;
     }
 
-    while (carry > 0) {
+    while (carry >= 1) {
         added.push_back(carry % 10);
         carry = carry / 10;
     }
