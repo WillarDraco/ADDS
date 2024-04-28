@@ -27,9 +27,20 @@ std::list<int> BigNumCalc::add(std::list<int> num1, std::list<int> num2) {
     int carry = 0;
 
     while (it1 != num1.end() || it2 != num2.end()) {
-        int addition = *it1 + *it2 + carry;
+        int addition = carry;
+
+        if (it1 != num1.end()) {
+            addition += *it1;
+            it1++;
+        }
+
+        if (it2 != num2.end()) {
+            addition += *it2;
+            it2++;
+        }
+
         added.push_back(addition);
-        carry = addition % 10;
+        carry = addition / 10;
         it1++;
         it2++;
     }
