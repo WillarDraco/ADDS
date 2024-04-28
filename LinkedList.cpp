@@ -37,12 +37,12 @@ void LinkedList::insertPosition(int pos, int newNum){
     look = look->getLink();
     Node* past = head;
 
-    while (count != pos) {
+    while (count != pos && look->getLink() != nullptr) {
         look = look->getLink();
         count++;
     }
 
-    if (look == nullptr) {
+    if (look->getLink() == nullptr && count == pos - 1) {
         Node* endStart = new Node(newNum, nullptr);
         past->setLink(endStart);
     } else {
@@ -66,21 +66,22 @@ bool LinkedList::deletePosition(int pos){
     look = look->getLink();
     Node* past = head;
 
-    while (count != pos) {
+    while (count != pos && look->getLink() != nullptr) {
         look = look->getLink();
         count++;
     }
 
-    if (look == nullptr) {
+    if (look->getLink() == nullptr && count == pos - 1) {
         delete look;
         past->setLink(nullptr);
         return true;
-    } else {
+    } else if (count == pos) {
         Node* temp = look->getLink();
         delete look;
         past->setLink(temp);
         return true;
     }
+    
     return false;
 }
 
@@ -98,16 +99,18 @@ int LinkedList::get(int pos){
     Node* look = head;
     look = look->getLink();
 
-    while (count != pos) {
+    while (count != pos && look->getLink() != nullptr) {
         look = look->getLink();
         count++;
     }
 
-    if (look == nullptr) {
+    if (look->getLink() == nullptr && count == pos - 1) {
         return std::numeric_limits < int >::max();
+    } else if (count == pos) {
+        return look->getData();
     }
 
-    return look->getData();
+    return std::numeric_limits < int >::max();
 }
 
 int LinkedList::search(int target){
@@ -132,6 +135,7 @@ void LinkedList::printList(){
 
     if (head == nullptr) {
         std::cout << "[]" << std::endl;
+        exit;
     }
 
     while (look->getLink() != nullptr) {
