@@ -1,6 +1,6 @@
 #include <iostream>
-#include <LinkedList.h>
-#include <Node.h>
+#include "LinkedList.h"
+#include "Node.h"
 #include <limits>
 
 LinkedList::LinkedList(int* array, int len) {
@@ -58,7 +58,7 @@ bool LinkedList::deletePosition(int pos){
         Node* temp = head->getLink();
         delete head;
         head = temp;
-        return;
+        return true;
     }
 
     Node* look = head;
@@ -73,11 +73,14 @@ bool LinkedList::deletePosition(int pos){
     if (look == nullptr) {
         delete look;
         past->setLink(nullptr);
+        return true;
     } else {
         Node* temp = look->getLink();
         delete look;
         past->setLink(temp);
+        return true;
     }
+    return false;
 }
 
 int LinkedList::get(int pos){
@@ -127,13 +130,13 @@ void LinkedList::printList(){
     Node* look = head;
 
     if (head == nullptr) {
-        std::cout << '[]' << std::endl;
+        std::cout << "[]" << std::endl;
     }
 
     while (look->getLink() != nullptr) {
-        std::cout << '[' << look->getData() << '] ';
+        std::cout << "[" << look->getData() << "] ";
         look = look->getLink();
     }
 
-    std::cout << '[' << look->getData() << ']' << std::endl;
+    std::cout << "[" << look->getData() << "]" << std::endl;
 }

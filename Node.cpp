@@ -1,6 +1,5 @@
 #include <iostream>
-#include <LinkedList.h>
-#include <Node.h>
+#include "Node.h"
 
 Node::Node() {
     data = 0;
