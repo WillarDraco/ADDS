@@ -44,7 +44,7 @@ std::list<int> BigNumCalc::add(std::list<int> num1, std::list<int> num2) {
     }
 
     while (carry >= 1) {
-        added.push_back(carry % 10);
+        added.push_front(carry % 10);
         carry = carry / 10;
     }
 
@@ -52,13 +52,13 @@ std::list<int> BigNumCalc::add(std::list<int> num1, std::list<int> num2) {
 }
 
 std::list<int> BigNumCalc::sub(std::list<int> num1, std::list<int> num2) {
-    auto it1 = num1.begin();
-    auto it2 = num2.begin();
+    auto it1 = num1.rbegin();
+    auto it2 = num2.rbegin();
     std::list<int> subbed;
 
     int carry = 0;
 
-    while (it1 != num1.end() || it2 != num2.end()) {
+    while (it1 != num1.rend() || it2 != num2.rend()) {
         int subtraction = (*it1 - carry) - *it2;
 
         if (subtraction < 0) {
