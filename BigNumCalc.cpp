@@ -80,8 +80,6 @@ std::list<int> BigNumCalc::sub(std::list<int> num1, std::list<int> num2) {
         }
 
         subbed.push_front(subtraction);
-        it1++;
-        it2++;
     }
 
     while (!subbed.empty() && subbed.front() == 0) {
