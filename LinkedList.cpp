@@ -59,24 +59,57 @@ void LinkedList::insertPosition(int pos, int newNum){
     }
 }
 
+// bool LinkedList::deletePosition(int pos){
+//     int count = 1;
+    
+//     if (count == pos) {
+//         Node* fakeHead = head;
+//         head = head->getLink();
+//         delete fakeHead;
+//         return true;
+//     }
+
+//     Node* look = head;
+//     look = look->getLink();
+//     Node* past = head;
+//     count++;
+
+//     while (count != pos && look->getLink() != nullptr) {
+//         look = look->getLink();
+//         past = past->getLink();
+//         count++;
+//     }
+
+//     if (look->getLink() == nullptr && count == pos - 1) {
+//         delete look;
+//         past->setLink(nullptr);
+//         return true;
+//     } else if (count == pos) {
+//         Node* temp = look->getLink();
+//         delete look;
+//         past->setLink(temp);
+//         return true;
+//     }
+    
+//     return false;
+// }
+
 bool LinkedList::deletePosition(int pos){
     int count = 1;
     
     if (count == pos) {
-        Node* fakeHead = head;
-        head = head->getLink();
-        delete fakeHead;
+        Node* temp = head->getLink();
+        delete head;
+        head = temp;
         return true;
     }
 
     Node* look = head;
     look = look->getLink();
     Node* past = head;
-    count++;
 
     while (count != pos && look->getLink() != nullptr) {
         look = look->getLink();
-        past = past->getLink();
         count++;
     }
 
