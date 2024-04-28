@@ -28,9 +28,8 @@ LinkedList::~LinkedList() {
 }
 
 void LinkedList::insertPosition(int pos, int newNum){
-    int count = 1;
     
-    if (count >= pos) {
+    if (pos < 1) {
         Node* temp = new Node(newNum, head);
         head = temp;
         return;
@@ -40,7 +39,7 @@ void LinkedList::insertPosition(int pos, int newNum){
     look = look->getLink();
     Node* past = head;
 
-    count++;
+    int count = 2;
 
     while (count < pos && look->getLink() != nullptr) {
         look = look->getLink();
@@ -55,10 +54,9 @@ void LinkedList::insertPosition(int pos, int newNum){
         Node* endStart = new Node(newNum, nullptr);
         past->setLink(endStart);
     } else {
-        Node* insertHere = new Node(newNum, look->getLink());
-        look->setLink(insertHere);
+        Node* insertHere = new Node(newNum, look);
+        past->setLink(insertHere);
     }
-
 }
 
 bool LinkedList::deletePosition(int pos){
