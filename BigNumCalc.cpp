@@ -12,7 +12,7 @@ std::list<int> BigNumCalc::buildBigNum(std::string numString) {
     std::list<int> num;
     int length = numString.length();
 
-    for (int i = length - 1; i > 0; i--) {
+    for (int i = length - 1; i >= 0; i--) {
         num.push_back(numString[i]);
     }
 
@@ -30,7 +30,8 @@ std::list<int> BigNumCalc::add(std::list<int> num1, std::list<int> num2) {
         int addition = *it1 + *it2 + carry;
         added.push_back(addition);
         carry = addition % 10;
-
+        it1++;
+        it2++;
     }
 
     while (carry > 0) {
@@ -59,6 +60,8 @@ std::list<int> BigNumCalc::sub(std::list<int> num1, std::list<int> num2) {
         }
 
         subbed.push_back(subtraction);
+        it1++;
+        it2++;
     }
 
     if (*subbed.end() == 0) {
