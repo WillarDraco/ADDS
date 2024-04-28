@@ -90,19 +90,20 @@ std::list<int> BigNumCalc::sub(std::list<int> num1, std::list<int> num2) {
 }
 
 std::list<int> BigNumCalc::mul(std::list<int> num1, std::list<int> num2) {
-    auto it1 = num1.begin();
+    auto it1 = num1.rbegin();
     std::list<int> multed;
     int mult = *num2.begin();
     int carry = 0;
 
-    while (it1 != num1.end()) {
-        int multiplied = *it1 * mult + carry;
+    while (it1 != num1.rend()) {
+        int multiplied = (*it1 * mult) + carry;
         multed.push_back(multiplied % 10);
         carry = multiplied / 10;
+        it1++;
     }
 
     while (carry > 0) {
-        multed.push_back(carry % 10);
+        multed.push_front(carry % 10);
         carry = carry / 10;
     }
 
