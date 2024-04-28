@@ -59,22 +59,33 @@ std::list<int> BigNumCalc::sub(std::list<int> num1, std::list<int> num2) {
     int carry = 0;
 
     while (it1 != num1.rend() || it2 != num2.rend()) {
-        int subtraction = (*it1 - carry) - *it2;
+        int subtraction = 0;
+
+        if (it1 != num1.rend()) {
+            subtraction += *it1;
+            it1++;
+            subtraction = subtraction - carry;
+        }
+
+        if (it2 != num2.rend()) {
+            subtraction -= *it2;
+            it2++;
+        }
 
         if (subtraction < 0) {
             carry = 1;
-            subtraction = subtraction * -1;
+            subtraction = subtraction + 10;
         } else {
             carry = 0;
         }
 
-        subbed.push_back(subtraction);
+        subbed.push_front(subtraction);
         it1++;
         it2++;
     }
 
-    if (*subbed.end() == 0) {
-        subbed.erase(subbed.end());
+    while (!subbed.empty() && subbed.front() == 0) {
+            subbed.pop_front();
     }
 
     return subbed;
