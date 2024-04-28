@@ -29,7 +29,8 @@ void LinkedList::insertPosition(int pos, int newNum){
     
     if (count >= pos) {
         Node* temp = new Node(newNum, head);
-        return;
+        head = temp;
+        exit;
     }
 
     Node* look = head;
