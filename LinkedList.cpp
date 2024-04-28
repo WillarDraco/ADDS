@@ -78,6 +78,7 @@ bool LinkedList::deletePosition(int pos){
 
     while (count != pos && look->getLink() != nullptr) {
         look = look->getLink();
+        past = past->getLink();
         count++;
     }
 
