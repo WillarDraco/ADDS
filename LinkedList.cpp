@@ -16,13 +16,15 @@ LinkedList::LinkedList(int* array, int len) {
 
 LinkedList::~LinkedList() {
     Node* look = head;
-    delete head;
 
     while (look != nullptr) {
         Node* temp = look;
         look = look->getLink();
         delete temp;
     }
+    
+    delete head;
+
 }
 
 void LinkedList::insertPosition(int pos, int newNum){
@@ -38,12 +40,18 @@ void LinkedList::insertPosition(int pos, int newNum){
     look = look->getLink();
     Node* past = head;
 
-    while (count != pos && look->getLink() != nullptr) {
+    count++;
+
+    while (count < pos && look->getLink() != nullptr) {
         look = look->getLink();
+        past = past->getLink();
         count++;
     }
 
     if (look->getLink() == nullptr && count == pos - 1) {
+        Node* endStart = new Node(newNum, nullptr);
+        past->setLink(endStart);
+    } else if (pos > count) {
         Node* endStart = new Node(newNum, nullptr);
         past->setLink(endStart);
     } else {
@@ -66,6 +74,7 @@ bool LinkedList::deletePosition(int pos){
     Node* look = head;
     look = look->getLink();
     Node* past = head;
+    count++;
 
     while (count != pos && look->getLink() != nullptr) {
         look = look->getLink();
