@@ -10,6 +10,8 @@ std::list<int> BigNumCalc::buildBigNum(std::string numString) {
         num.insert(it, numString[i]);
         it++;
     }
+
+    return num;
 }
 
 std::list<int> BigNumCalc::add(std::list<int> num1, std::list<int> num2) {
