@@ -10,6 +10,7 @@ LinkedList::LinkedList(int* array, int len) {
     for (int i = 1; i < len; i++) {
         Node* temp = new Node(array[i], nullptr);
         look->setLink(temp);
+        look = look->getLink();
     }
 }
 
@@ -30,7 +31,7 @@ void LinkedList::insertPosition(int pos, int newNum){
     if (count >= pos) {
         Node* temp = new Node(newNum, head);
         head = temp;
-        exit;
+        return;
     }
 
     Node* look = head;
@@ -135,13 +136,15 @@ void LinkedList::printList(){
 
     if (head == nullptr) {
         std::cout << "[]" << std::endl;
-        exit;
+        return;
     }
 
+    std::cout << "[";
+
     while (look->getLink() != nullptr) {
-        std::cout << "[" << look->getData() << "] ";
+        std::cout << look->getData() << " ";
         look = look->getLink();
     }
 
-    std::cout << "[" << look->getData() << "]" << std::endl;
+    std::cout << look->getData() << "]" << std::endl;
 }
