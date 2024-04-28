@@ -63,9 +63,9 @@ bool LinkedList::deletePosition(int pos){
     int count = 1;
     
     if (count == pos) {
-        Node* temp = head->getLink();
-        delete head;
-        head = temp;
+        Node* fakeHead = head;
+        head = head->getLink();
+        delete fakeHead;
         return true;
     }
 
