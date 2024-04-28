@@ -105,6 +105,8 @@ int LinkedList::get(int pos){
         return head->getData();
     }
 
+    count++;
+
     Node* look = head;
     look = look->getLink();
 
