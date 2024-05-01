@@ -43,7 +43,7 @@ bool LinkedList::swap(int pos1, int pos2) {
 	bool count1found = false;
 	bool count2found = false;
 
-	while (look != nullptr && ((count1 < pos1 || count2 < pos2) && (count1found == false || count2found == false))) {
+	while (look != nullptr) {
 		if (count1 == pos1) {
 			spot1 = look;
 			count1found = true;
@@ -55,6 +55,7 @@ bool LinkedList::swap(int pos1, int pos2) {
 		}
 
 		look = look->link;
+
 		count1++;
 		count2++;
 	}
@@ -72,12 +73,11 @@ bool LinkedList::swap(int pos1, int pos2) {
 bool LinkedList::find_and_delete(int target) {
 	Node* look = head;
 	Node* past = head;
-	Node* targetNode = nullptr;
 
 	if (look->data == target) {
 		Node* tempHead = look->link;
-		delete look;
 		head = tempHead;
+		delete look;
 		return true;
 	}
 
@@ -86,10 +86,12 @@ bool LinkedList::find_and_delete(int target) {
 	while (look != nullptr) {
 		if (look->data == target) {
 			Node* tempNext = look->link;
-			delete look;
 			past->link = tempNext;
+			delete look;
 			return true;
 		}
+
+		look = look->link;
 	}
 
 	return false;
