@@ -9,19 +9,21 @@ PrefixMatcher::PrefixMatcher() {
 
 int PrefixMatcher::selectRouter(std::string networkAddress) {
     TriePrefix* look = root;
+    int router = -1;
 
     for (int i = 0; i < networkAddress.length(); i++) {
         int digitCheck = networkAddress[i] - '0';
+        
         if (look->getIP()[digitCheck] == nullptr) {
             return look->getRouterNum();
         }
+
         look = look->getIP()[digitCheck];
     }
 
     std::queue<TriePrefix*> future;
     future.push(look);
-    int router = -1;
-
+    
     while (!future.empty()) {
         TriePrefix* current = future.front();
         future.pop();
@@ -38,6 +40,7 @@ int PrefixMatcher::selectRouter(std::string networkAddress) {
             future.push(current->getIP()[1]);
         }
     }
+
     return router;
 }
 
