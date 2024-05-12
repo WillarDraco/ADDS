@@ -10,7 +10,7 @@ class TrieNode {
     public:
         TrieNode();
         void setWord(bool word);
-        std::vector<TrieNode*> getLetters();
+        std::vector<TrieNode*>& getLetters();
         bool getWord();
 };
 #endif

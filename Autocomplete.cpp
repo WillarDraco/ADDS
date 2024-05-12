@@ -3,12 +3,17 @@
 #include <iostream>
 #include <queue>
 
+Autocomplete::Autocomplete() {
+    root = new TrieNode;
+}
+
 std::vector<std::string> Autocomplete::getSuggestions(std::string partialWord) {
     TrieNode* look = root;
     std::vector<std::string> suggestions;
 
     for (char c : partialWord) {
-        if (look->getLetters()[c - 'a'] == nullptr) {
+        int character = c - 'a';
+        if (look->getLetters()[character] == nullptr) {
             return suggestions;
         }
         look = look->getLetters()[c - 'a'];
@@ -39,6 +44,7 @@ std::vector<std::string> Autocomplete::getSuggestions(std::string partialWord) {
 
 void Autocomplete::insert(std::string word) {
     TrieNode* look = root;
+
     for (int i = 0; i < word.length(); i++) {
         int letter = word[i] - 'a';
         TrieNode* newLetter = new TrieNode();

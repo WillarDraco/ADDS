@@ -13,6 +13,6 @@ bool TrieNode::getWord() {
     return word;
 }
 
-std::vector<TrieNode*> TrieNode::getLetters() {
+std::vector<TrieNode*>& TrieNode::getLetters() {
     return letters;
 }

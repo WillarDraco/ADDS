@@ -8,6 +8,7 @@ class Autocomplete {
     private:
         TrieNode* root;
     public:
+        Autocomplete();
         std::vector<std::string> getSuggestions(std::string partialWord);
         void insert(std::string word);
 };
