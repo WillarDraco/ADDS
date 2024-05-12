@@ -16,7 +16,7 @@ std::vector<std::string> Autocomplete::getSuggestions(std::string partialWord) {
         if (look->getLetters()[character] == nullptr) {
             return suggestions;
         }
-        look = look->getLetters()[c - 'a'];
+        look = look->getLetters()[character];
     }
 
     std::queue<std::pair<TrieNode*, std::string>> future;
@@ -47,6 +47,10 @@ void Autocomplete::insert(std::string word) {
 
     for (int i = 0; i < word.length(); i++) {
         int letter = word[i] - 'a';
+        if (look->getLetters()[letter] != nullptr) {
+            look = look->getLetters()[letter];
+            continue;
+        }
         TrieNode* newLetter = new TrieNode();
         look->getLetters()[letter] = newLetter;
         look = look->getLetters()[letter];
