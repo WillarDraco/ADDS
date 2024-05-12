@@ -6,7 +6,7 @@
 class TrieNode {
     private:
         bool word;
-        std::vector<TrieNode*> letters[26];
+        std::vector<TrieNode*> letters;
     public:
         TrieNode();
         void setWord(bool word);

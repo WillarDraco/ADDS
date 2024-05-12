@@ -2,6 +2,7 @@
 
 TrieNode::TrieNode() {
     word = false;
+    letters.resize(26, nullptr);
 }
 
 void TrieNode::setWord(bool word) {
@@ -13,5 +14,5 @@ bool TrieNode::getWord() {
 }
 
 std::vector<TrieNode*> TrieNode::getLetters() {
-    return *letters;
+    return letters;
 }
