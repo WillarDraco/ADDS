@@ -29,7 +29,7 @@ bool DocumentManager::borrowDocument(int docid, int patronID) {  // returns true
         return false;
     }
 
-    if (docCount.find(docid) == docCount.end()) {
+    if (docCount.count(docid) == 0) {
         return false;
     }
 
@@ -42,7 +42,7 @@ bool DocumentManager::borrowDocument(int docid, int patronID) {  // returns true
 }
 
 void DocumentManager::returnDocument(int docid, int patronID) {
-    if (patrons.at(patronID) != 1) {
+    if (patrons.count(patronID) == 0) {
         return;
     }
 
