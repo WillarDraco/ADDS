@@ -29,6 +29,10 @@ bool DocumentManager::borrowDocument(int docid, int patronID) {  // returns true
         return false;
     }
 
+    if (docCount.find(docid) == docCount.end()) {
+        return false;
+    }
+
     if (docCount.at(docid) > 0) {
         docCount[docid]--;
         return true;
