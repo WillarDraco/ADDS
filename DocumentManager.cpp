@@ -7,7 +7,7 @@ DocumentManager::DocumentManager() {
 void DocumentManager::addDocument(std::string name, int id, int license_limit) {
     Document* temp = new Document(name, id, license_limit);
     holder.push_back(temp);
-    docCount[id] = holder.size() - 1;
+    docCount[id] = holder.size();
 }
 
 void DocumentManager::addPatron(int patronID) {
@@ -25,11 +25,12 @@ int DocumentManager::search(std::string name) {// returns docid if name is in th
 }
 
 bool DocumentManager::borrowDocument(int docid, int patronID) {  // returns true if document is borrowed, false if it can not be borrowed (invalid patronid or the number of copies current borrowed has reached the license limit)
-    if (patrons[patronID] != 1) {
+    if (patrons.at(patronID) != 1) {
         return false;
     }
 
-    if (docCount[docid] > 0) {
+    if (docCount.at(docid) > 0) {
+        docCount[docid]--;
         return true;
     }
 
@@ -37,7 +38,7 @@ bool DocumentManager::borrowDocument(int docid, int patronID) {  // returns true
 }
 
 void DocumentManager::returnDocument(int docid, int patronID) {
-    if (patrons[patronID] != 1) {
+    if (patrons.at(patronID) != 1) {
         return;
     }
 
