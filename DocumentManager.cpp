@@ -34,7 +34,7 @@ bool DocumentManager::borrowDocument(int docid, int patronID) {  // returns true
     }
 
     if (docCount.at(docid) > 0) {
-        docCount[docid]--;
+        holder[docCount[docid]]->setdocID(holder[docCount[docid]]->getdocID() - 1);
         return true;
     }
 
@@ -46,5 +46,9 @@ void DocumentManager::returnDocument(int docid, int patronID) {
         return;
     }
 
-    docCount[docid] += 1;
+    if (docCount.count(docid) == 0) {
+        return;
+    }
+
+    holder[docCount[docid]]->setdocID(holder[docCount[docid]]->getdocID() + 1);
 }
