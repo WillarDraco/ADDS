@@ -33,8 +33,8 @@ bool DocumentManager::borrowDocument(int docid, int patronID) {  // returns true
         return false;
     }
 
-    if (docCount.at(docid) > 0) {
-        holder[docCount.at(docid)]->setdocID(holder[docCount.at(docid)]->getdocID() - 1);
+    if (holder[docCount.at(docid)]->getLicenseLimit() > 0) {
+        holder[docCount.at(docid)]->setLicenseLimit(holder[docCount.at(docid)]->getLicenseLimit() - 1);
         return true;
     }
 
@@ -50,5 +50,5 @@ void DocumentManager::returnDocument(int docid, int patronID) {
         return;
     }
 
-    holder[docCount.at(docid)]->setdocID(holder[docCount.at(docid)]->getdocID() + 1);
+    holder[docCount.at(docid)]->setLicenseLimit(holder[docCount.at(docid)]->getLicenseLimit() + 1);
 }
