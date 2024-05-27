@@ -7,7 +7,7 @@ DocumentManager::DocumentManager() {
 void DocumentManager::addDocument(std::string name, int id, int license_limit) {
     Document* temp = new Document(name, id, license_limit);
     holder.push_back(temp);
-    docCount[id] = holder.size();
+    docCount[id] = holder.size() - 1;
 }
 
 void DocumentManager::addPatron(int patronID) {
