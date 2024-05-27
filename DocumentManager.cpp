@@ -25,7 +25,7 @@ int DocumentManager::search(std::string name) {// returns docid if name is in th
 }
 
 bool DocumentManager::borrowDocument(int docid, int patronID) {  // returns true if document is borrowed, false if it can not be borrowed (invalid patronid or the number of copies current borrowed has reached the license limit)
-    if (patrons.at(patronID) != 1) {
+    if (patrons.count(patronID) == 0) {
         return false;
     }
 
