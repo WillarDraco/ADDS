@@ -1,5 +1,9 @@
 #include "DocumentManager.h"
 
+DocumentManager::DocumentManager() {
+    holder = {};
+}
+
 void DocumentManager::addDocument(std::string name, int id, int license_limit) {
     Document* temp = new Document(name, id, license_limit);
     holder.push_back(temp);

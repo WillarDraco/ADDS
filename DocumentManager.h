@@ -13,6 +13,7 @@ class DocumentManager {
         std::unordered_map<int,int> docCount; // docID, holderIndex
         std::unordered_map<int, int> patrons;
     public:
+        DocumentManager();
         void addDocument(std::string name, int id, int license_limit);
         void addPatron(int patronID);
         int search(std::string name); // returns docid if name is in the document collection or 0 if the name is not in the collection
